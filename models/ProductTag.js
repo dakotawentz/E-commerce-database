@@ -22,10 +22,11 @@ ProductTag.init(
       allowNull: false,
     },
     tag_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: 'Tag', 
         key: 'id',
+        unique: false,
       },
       allowNull: false,
     },
