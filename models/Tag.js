@@ -13,9 +13,8 @@ id: {
   autoIncrement: true,
   allowNull: false,
 },
-tag_id: {
-  type: DataTypes.INTEGER,
-  allowNull: false,
+tag_name: {
+  type: DataTypes.STRING,
 }
   },
   {

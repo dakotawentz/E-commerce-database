@@ -5,10 +5,10 @@ const { Category, Product } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
-    const categories = await Category.findAll({
+    const categoryData = await Category.findAll({
       include: Product,
     });
-    res.json(categories);
+    res.json(categoryData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -19,41 +19,41 @@ router.get('/:id',async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-    const category = await Category.findByPk(req.params.id, {
+    const categoryData = await Category.findByPk(req.params.id, {
       include: Product,
     });
 
-    if (!category) {
+    if (!categoryData) {
       res.status(404).json({ message: 'Category not found' });
       return;
     }
 
-    res.json(category);
+    res.json(categoryData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 router.post('/', async (req, res) => {
-  // create a new category
+  // create a new categoryData
   try {
-    const newCategory = await Category.create(req.body);
-    res.status(201).json(newCategory);
+    const categoryData = await Category.create(req.body);
+    res.status(201).json(categoryData);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
 router.put('/:id', async (req, res) => {
-  // update a category by its `id` value
+  // update a categoryData by its `id` value
   try {
-    const updatedCategory = await Category.update(req.body, {
+    const categoryData = await Category.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
 
-    if (updatedCategory[0] === 0) {
+    if (!categoryData) {
       res.status(404).json({ message: 'Category not found' });
       return;
     }
@@ -65,15 +65,15 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  // delete a category by its `id` value
+  // delete a categoryData by its `id` value
   try {
-    const deletedCategory = await Category.destroy({
+    const categoryData = await Category.destroy({
       where: {
         id: req.params.id,
       },
     });
 
-    if (deletedCategory === 0) {
+    if (!categoryData) {
       res.status(404).json({ message: 'Category not found' });
       return;
     }
