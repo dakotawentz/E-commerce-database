@@ -206,6 +206,8 @@ This Challenge is graded based on the following criteria:
 
 ### Walkthrough Video: 37%
 
+https://drive.google.com/file/d/1y9h30UUGr33ecKZAO_kitWD6SQHgyrWO/view
+
 * A walkthrough video that demonstrates the functionality of the e-commerce back end must be submitted, and a link to the video should be included in your readme file.
 
 * The walkthrough video must show all of the technical acceptance criteria being met.
